@@ -1,0 +1,27 @@
+version: "3.9"
+
+networks:
+  todo-network:
+    driver: bridge
+
+services:
+  todo-mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "3307:3306"
+    networks:
+      - todo-network
+
+  todo-api:
+    image: pivoluz/todo-api
+    command: ["/wait-for-it.sh", "todo-mysql:3307", "-t", "30", "--", "java", "-jar", "to_do.jar" ]
+    environment:
+      DB_HOST: todo-mysql
+    ports:
+      - "8080:8080"
+    networks:
+      - todo-network
+    depends_on:
+      - todo-mysql
