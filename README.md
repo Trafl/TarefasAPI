@@ -1,5 +1,5 @@
 # Sistema Para Organizar Tarefas
-Projeto criado para permitir a organização e listagem das tarefas incluindo um relatorio em PDF
+Projeto criado que permiti a organização e listagem das tarefas incluindo um relatorio em PDF
 
 ## Tecnologias usadas
 Este projeto foi feito com as seguintes tecnologias:
