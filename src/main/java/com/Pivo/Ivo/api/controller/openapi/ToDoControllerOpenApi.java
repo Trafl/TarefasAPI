@@ -16,38 +16,37 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
-@Tag(name = "Tarefas", description = "Gerenciador de tarefas")
+@Tag(name = "Tasks", description = "Task Manager")
 public interface ToDoControllerOpenApi {
 
-	 @Operation(summary = "Listar as tarefas", description = "Vizualiza todas as tarefas disponiveis por ordem de prioridade",
+	 @Operation(summary = "List the tasks", description = "View all available tasks in order of priority",
 			 responses = @ApiResponse(responseCode = "200"))
 	public ResponseEntity<List<ToDoOutput>> list();
 	
-	 @Operation(summary = "Registra uma tarefa", description = "Registra uma tarefa no banco de dados.")
+	 @Operation(summary = "Register a task", description = "Registers a task in the database.")
 	public ResponseEntity<List<ToDoOutput>> create(@RequestBody @Valid ToDoInput input);
 	
-	 @Operation(summary = "Atualiza uma tarefa", description = "Atualiza uma tarefa no banco de dados.",
+	 @Operation(summary = "Update a task", description = "Updates a task in the database.",
 			 responses = {@ApiResponse(responseCode = "200"),
-					 	  @ApiResponse(responseCode = "404", description = "Tarefa não encontrada",
+					 	  @ApiResponse(responseCode = "404", description = "Task not found",
 					 	  content = @Content(schema = @Schema(ref = "Problema")))
 			})
 	public ResponseEntity<List<ToDoOutput>> update(@PathVariable Long toDoId, @RequestBody @Valid ToDoInput input );
 	
-	 @Operation(summary = "Deleta uma tarefa", description = "Deleta uma tarefa no banco de dados.",
-			 responses = {@ApiResponse(responseCode = "204",
-				 	  content = @Content(schema = @Schema(ref = ""))),
-					 	  @ApiResponse(responseCode = "404", description = "Tarefa não encontrada",
+	 @Operation(summary = "Deletes a task", description = "Deletes a task from the database.",
+			 responses = {@ApiResponse(responseCode = "200"),
+					 	  @ApiResponse(responseCode = "404", description = "Task not found",
 					 	  content = @Content(schema = @Schema(ref = "Problema")))
 			})
 	public ResponseEntity<List<ToDoOutput>> delete(@PathVariable Long toDoId);
 	
-	 @Operation(summary = "Gerar PDF de tarefas", description = "Gera um pdf com todas as tarefas do banco de dados",
+	 @Operation(summary = "Generate task PDF", description = "Generates a PDF with all database tasks",
 			 responses = @ApiResponse(responseCode = "200"))
 	public ResponseEntity<byte[]> findPdf();
 	 
-	 @Operation(summary = "Finalizar a tarefa", description = "Finaliza a tarefas selecionada",
+	 @Operation(summary = "Finish the task", description = "Finish the selected task",
 			 responses = {@ApiResponse(responseCode = "200"),
-					 @ApiResponse(responseCode = "404", description = "Tarefa não encontrada",
+					 @ApiResponse(responseCode = "404", description = "Task not found",
 				 	  content = @Content(schema = @Schema(ref = "Problema")))})
 	public ResponseEntity<List<ToDoOutput>> endTask(@PathVariable Long toDoId);
 }

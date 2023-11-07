@@ -86,7 +86,6 @@ public class ToDoController implements ToDoControllerOpenApi {
 	}
 	
 	@DeleteMapping("/{toDoId}")
-	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public ResponseEntity<List<ToDoOutput>> delete(@PathVariable Long toDoId){
 		service.delete(toDoId);
 		return list();
