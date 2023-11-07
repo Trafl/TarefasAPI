@@ -1,8 +1,8 @@
-# Sistema Para Organizar Tarefas
-Projeto criado que permiti a organização e listagem das tarefas incluindo um relatorio em PDF
+# TodoTasks
+This is a simple yet effective solution for task registration and organization based on priority. The API is built following the MVC architecture, uses DTOs for data transfer, includes API tests implemented with Rest-assured, and is fully documented in the OpenAPI standard to provide a comprehensive understanding of its endpoints. Additionally, I have made the API image available on DockerHub to simplify execution, among other features.
 
-## Tecnologias usadas
-Este projeto foi feito com as seguintes tecnologias:
+## Technologies used
+This project was made with the following technologies:
 - Java 17
 - Spring Boot
 - Spring Data JPA
@@ -13,37 +13,36 @@ Este projeto foi feito com as seguintes tecnologias:
 - JasperReports
 - Docker
 - Docker compose
-- Imagem docker da API do projeto todo-api
-- Imagem docker do banco de dados mysql
+- Docker image of the todo-api project API
+- Mysql database docker image
 - JUnit
 - Rest-Assured
 - OpenApi
 - SpringDoc
 
-## Requisitos
-Para rodar este projeto, é necessário ter instalados na sua máquina os seguintes programas
+## Requirements 
+To run this project, you must have the following programs installed on your machine
 - Docker
 - Docker Compose
 
-## Como executar este projeto
-Entre na pasta do projeto, onde está o arquivo `docker-compose.yaml` e então use o seguinte comando para executar o projeto
+## How to run this project
+Enter the project folder where the `docker-compose.yaml` file is located and then use the following command to run the project
 ```
 docker-compose up
 ```
-Para parar a excução, utilize o comando:
+To stop execution, use the command:
 `
 Ctrl + C
 `
-ou, em outro terminal aberto no mesmo caminho:
+or, in another terminal open in the same path:
 ```
 docker-compose stop
 ```
 
-`docker-compose up` criará os containers especificados no arquivo `docker-compose.yaml` e os inicializará.
+`docker-compose up` will create the containers specified in the file `docker-compose.yaml` and initialize them.
 
+After the containers are created, the database would use port 3307, use a program like `Postman` or `Insomnia` to make http requests.
+Once you have Insomnia or Postman open, go to the url [http://localhost:8080/trabalhos](http://localhost:8080/trabalhos) to interact with the rest api.
 
-Após os containers serem criados o banco de dados iria usar a porta 3307, use um programa como `Postman` ou `Insomnia` para fazer as requisições http.
-Uma vez com o Insomnia ou Postman aberto, vá até a url [http://localhost:8080/tarefas](http://localhost:8080/tarefas) para interagir com a api rest.
-
-## Documentação
-Esse projeto foi documentado no padrão OpenApi, apos a execução va a url [http://hotelo.api:8080/swagger-ui/index.html#/Tarefas](http://hotelo.api:8080/swagger-ui/index.html#/Tarefas) para acessar mais detalhes sobre os EndPoints.
+## Documentation
+This project was documented in the OpenApi standard, after execution go to the url [http://localhost:8080/swagger-ui/index.html#/Tasks](http://localhost:8080/swagger-ui/index.html#/Tasks) to access more details about EndPoints.
